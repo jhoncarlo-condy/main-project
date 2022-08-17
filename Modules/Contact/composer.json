@@ -1,5 +1,5 @@
 {
-    "name": "nwidart/contact",
+    "name": "cxndy/contact-module",
     "description": "",
     "authors": [
         {
@@ -19,5 +19,6 @@
         "psr-4": {
             "Modules\\Contact\\": ""
         }
-    }
+    },
+    "type" : "laravel-module"
 }

@@ -14,16 +14,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('contact::index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public function create()
-    {
-        return view('contact::create');
+        return response()->json([
+            'message' => 'index'
+        ]);
     }
 
     /**
@@ -43,17 +36,9 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        return view('contact::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('contact::edit');
+        return response()->json([
+            'message' => 'show'
+        ]);
     }
 
     /**

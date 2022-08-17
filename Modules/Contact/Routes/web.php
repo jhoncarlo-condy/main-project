@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Modules\Contact\Http\Controllers\ContactController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +14,9 @@
 |
 */
 
-Route::prefix('contact')->group(function() {
-    Route::get('/', 'ContactController@index');
-});
+// Route::prefix('contact')->group(function() {
+//     Route::get('/', 'ContactController@index');
+// });
+
+
+Route::resource('contact',ContactController::class);
