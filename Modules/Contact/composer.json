@@ -1,10 +1,10 @@
 {
     "name": "cxndy/contact-module",
-    "description": "",
+    "description": "contact module for laravel apps",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Jhon Carlo Condy",
+            "email": "jhoncarlo.condy@gmail.com"
         }
     ],
     "extra": {
