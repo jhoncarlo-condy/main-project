@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Contact\Entities;
+namespace Modules\ContactInfo\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Contact extends Model
+class ContactInfo extends Model
 {
     use HasFactory;
 
@@ -13,6 +13,6 @@ class Contact extends Model
 
     protected static function newFactory()
     {
-        // return \Modules\Contact\Database\factories\ContactFactory::new();
+        // return \Modules\ContactInfo\Database\factories\ContactInfoFactory::new();
     }
 }

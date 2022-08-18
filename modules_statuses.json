@@ -1,4 +1,5 @@
 {
     "Contact": true,
-    "User": true
+    "User": true,
+    "ContactInfo": true
 }
