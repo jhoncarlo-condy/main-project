@@ -20,5 +20,8 @@
             "Modules\\Contact\\": ""
         }
     },
-    "type" : "laravel-module"
+    "type" : "laravel-module",
+    "require": {
+        "cxndy/contactinfo-module": "dev-master"
+    }
 }
