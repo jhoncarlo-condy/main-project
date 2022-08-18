@@ -5,6 +5,7 @@ namespace Modules\Contact\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Contact\Http\Requests\CreateContactRequest;
 
 class ContactController extends Controller
 {
@@ -24,9 +25,9 @@ class ContactController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CreateContactRequest $request)
     {
-        //
+        dd($request);
     }
 
     /**
