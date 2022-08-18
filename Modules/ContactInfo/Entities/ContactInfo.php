@@ -11,6 +11,11 @@ class ContactInfo extends Model
 
     protected $fillable = [];
 
+    public function contactInfoable()
+    {
+        return $this->morphTo();
+    }
+
     protected static function newFactory()
     {
         // return \Modules\ContactInfo\Database\factories\ContactInfoFactory::new();
