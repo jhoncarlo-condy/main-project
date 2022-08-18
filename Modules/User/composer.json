@@ -1,10 +1,10 @@
 {
-    "name": "nwidart/user",
-    "description": "",
+    "name": "cxndy/user-module",
+    "description": "user module for laravel apps",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Jhon Carlo Condy",
+            "email": "jhoncarlo.condy@gmail.com"
         }
     ],
     "extra": {
@@ -19,5 +19,9 @@
         "psr-4": {
             "Modules\\User\\": ""
         }
+    },
+    "type": "laravel-module",
+    "require": {
+        "laravel/sanctum": "^3.0"
     }
 }

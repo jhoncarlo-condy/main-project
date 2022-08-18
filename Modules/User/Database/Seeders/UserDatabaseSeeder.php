@@ -16,6 +16,14 @@ class UserDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+        User::firstOrCreate(
+            [
+                'email' => 'superadmin@davidvenneit.com',
+            ],
+            [
+                'name' => 'Superadmin',
+                'password' => Hash::make('ZFAzffinhq4bUhc')
+            ]
+        );
     }
 }
