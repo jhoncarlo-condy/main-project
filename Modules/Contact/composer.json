@@ -9,9 +9,11 @@
     ],
     "extra": {
         "laravel": {
-            "providers": [],
+            "providers": [
+                "Spatie\\QueryBuilder\\QueryBuilderServiceProvider"
+            ],
             "aliases": {
-
+                "QueryBuilder": "Spatie\\QueryBuilder\\QueryBuilder"
             }
         }
     },
@@ -22,6 +24,7 @@
     },
     "type" : "laravel-module",
     "require": {
-        "spatie/data-transfer-object": "^3.8"
+        "spatie/data-transfer-object": "^3.8",
+        "spatie/laravel-query-builder": "^5.0"
     }
 }

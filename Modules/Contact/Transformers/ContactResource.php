@@ -3,6 +3,7 @@
 namespace Modules\Contact\Transformers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Contact\Transformers\ContactInfoResource;
 
 class ContactResource extends JsonResource
 {
@@ -19,7 +20,7 @@ class ContactResource extends JsonResource
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'title' => $this->title,
-            'contact_infos' => $this->contact_infos,
+            'contact_infos' => ContactInfoResource::collection($this->contact_infos),
         ];
 
         return $payload;

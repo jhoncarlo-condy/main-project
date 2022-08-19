@@ -3,14 +3,17 @@
 namespace Modules\Contact\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use Modules\ContactInfo\Entities\ContactInfo;
+use Modules\Contact\Entities\ContactInfo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Contact extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    const TYPE_EMAIL = 'email';
+    const TYPE_PHONE = 'phone';
+
+    protected $guarded = ['id'];
 
     public $relationships = ['contactInfos'];
 
