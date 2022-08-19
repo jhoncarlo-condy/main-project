@@ -19,4 +19,4 @@ use Modules\Contact\Http\Controllers\ContactController;
 // });
 
 
-Route::resource('contact',ContactController::class);
+// Route::resource('contact',ContactController::class);

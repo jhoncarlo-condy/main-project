@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Modules\Contact\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,6 @@ use Illuminate\Http\Request;
 // Route::middleware('auth:api')->get('/contact', function (Request $request) {
 //     return $request->user();
 // });
+
+
+Route::apiResource('contacts',ContactController::class);

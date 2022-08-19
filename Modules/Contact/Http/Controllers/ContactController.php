@@ -2,17 +2,17 @@
 
 namespace Modules\Contact\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Contact\Entities\Contact;
+use Modules\Contact\Actions\CreateContactAction;
+use Modules\Contact\Transformers\ContactResource;
 use Modules\Contact\Http\Requests\CreateContactRequest;
+use Modules\Contact\DataTransferObjects\CreateContactData;
 
 class ContactController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
+
     public function index()
     {
         return response()->json([
@@ -20,44 +20,27 @@ class ContactController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
-    public function store(CreateContactRequest $request)
+    public function store(
+        CreateContactRequest $request,
+        CreateContactAction $action
+    )
     {
-        dd($request);
+        $data = CreateContactData::fromCreateRequest($request);
+        $result = $action($data);
+
+        return response()->json(new ContactResource($result));
     }
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function show($id)
+    public function show(Contact $contact)
     {
-        return response()->json([
-            'message' => 'show'
-        ]);
+        return response()->json(new ContactResource($contact));
     }
 
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
     public function update(Request $request, $id)
     {
-        //
+        dd('update');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
     public function destroy($id)
     {
         return response()->json([
