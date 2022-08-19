@@ -7,9 +7,11 @@ use Illuminate\Routing\Controller;
 use Modules\Contact\Entities\Contact;
 use Modules\Contact\Queries\ContactIndexQuery;
 use Modules\Contact\Actions\CreateContactAction;
+use Modules\Contact\Actions\UpdateContactAction;
 use Modules\Contact\Transformers\ContactResource;
-use Modules\Contact\Http\Requests\CreateContactRequest;
+use Modules\Contact\Http\Requests\ContactFormRequest;
 use Modules\Contact\DataTransferObjects\CreateContactData;
+use Modules\Contact\DataTransferObjects\UpdateContactData;
 
 class ContactController extends Controller
 {
@@ -26,11 +28,11 @@ class ContactController extends Controller
     }
 
     public function store(
-        CreateContactRequest $request,
+        ContactFormRequest $request,
         CreateContactAction $action
     )
     {
-        $data = CreateContactData::fromCreateRequest($request);
+        $data = CreateContactData::fromRequest($request);
         $result = $action($data);
 
         return response()->json(new ContactResource($result));
@@ -41,15 +43,22 @@ class ContactController extends Controller
         return response()->json(new ContactResource($contact));
     }
 
-    public function update(Request $request, $id)
+    public function update(
+        Contact $contact,
+        ContactFormRequest $request,
+        UpdateContactAction $action
+    )
     {
-        dd('update');
+        $data = UpdateContactData::fromRequest($request);
+        $result = $action($contact,$data);
+        return response()->json(new ContactResource($result));
     }
 
-    public function destroy($id)
+    public function destroy(Contact $contact)
     {
+        $contact->delete();
         return response()->json([
-            'message' => 'delete'
+            'message' => 'Contact deleted successfully'
         ]);
     }
 }
