@@ -3,6 +3,7 @@
 namespace Modules\Contact\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Modules\Contact\Rules\ContactFormRule;
 
 class ContactFormRequest extends FormRequest
 {
@@ -13,11 +14,8 @@ class ContactFormRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'first_name' => ['required','string'],
-            'last_name'  => ['required','string'],
-            'title'      => ['required','string']
-        ];
+        $contactRules = (new ContactFormRule());
+        return request()->isMethod('PUT') ? $contactRules->rulesUpdate() : $contactRules->rulesStore();
     }
 
     /**
